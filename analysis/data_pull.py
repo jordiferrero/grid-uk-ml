@@ -10,13 +10,14 @@ import pandas as pd
 import requests
 from urllib import parse
 
-def data_pull_date(datacode,date_start,date_end,entry_limit):
+# DATETIME
+def data_pull_date(datacode,datevar,date_start,date_end,entry_limit):
     #Define Dataset and Timeframe to Download
     sql_query = '''SELECT COUNT(*) OVER () AS _count,
     * FROM "{}"
-    WHERE "DATETIME" >= '{}'
-    AND "DATETIME" <= '{}'
-    ORDER BY "_id" ASC LIMIT {}'''.format(datacode,date_start,date_end,entry_limit)
+    WHERE "{}" >= '{}'
+    AND "{}" <= '{}'
+    ORDER BY "_id" ASC LIMIT {}'''.format(datacode,datevar,date_start,datevar,date_end,entry_limit)
 
 
     #Use National Grid API to Pull Data
