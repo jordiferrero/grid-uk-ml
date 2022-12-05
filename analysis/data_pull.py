@@ -19,7 +19,6 @@ def data_pull_date(datacode,datevar,date_start,date_end,entry_limit):
     AND "{}" <= '{}'
     ORDER BY "_id" ASC LIMIT {}'''.format(datacode,datevar,date_start,datevar,date_end,entry_limit)
 
-
     #Use National Grid API to Pull Data
     params = {'sql': sql_query}
 
